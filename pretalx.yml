@@ -37,7 +37,7 @@ objects:
     annotations:
       description: Exposes and load balances the application pods
       service.alpha.openshift.io/dependencies: '[{"name": "postgresql",
-        "kind": "Service"}]'
+        "kind": "Service"}, {"name": "redis", "kind": "Service"}]'
     name: ${NAME}
   spec:
     ports:
