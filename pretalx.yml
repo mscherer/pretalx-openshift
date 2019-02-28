@@ -326,7 +326,7 @@ objects:
             valueFrom:
               secretKeyRef:
                 key: redis-password
-                name: redis
+                name: ${NAME}
           image: ' '
           imagePullPolicy: IfNotPresent
           livenessProbe:
@@ -385,7 +385,7 @@ parameters:
   displayName: Name
   name: NAME
   required: true
-  value: django-psql-persistent
+  value: pretalx
 
 - description: The OpenShift Namespace where the ImageStream resides.
   displayName: Namespace
