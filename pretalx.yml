@@ -146,7 +146,7 @@ objects:
           image: ' '
           livenessProbe:
             httpGet:
-              path: /health
+              path: /
               port: 8080
             initialDelaySeconds: 30
             timeoutSeconds: 3
@@ -155,7 +155,7 @@ objects:
           - containerPort: 8080
           readinessProbe:
             httpGet:
-              path: /health
+              path: /
               port: 8080
             initialDelaySeconds: 3
             timeoutSeconds: 3
