@@ -308,6 +308,7 @@ objects:
       type: Recreate
     template:
       metadata:
+        name: redis
         labels:
           name: redis
       spec:
