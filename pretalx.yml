@@ -284,22 +284,14 @@ objects:
 - apiVersion: v1
   kind: Service
   metadata:
-    annotations:
-      template.openshift.io/expose-uri: redis://{.spec.clusterIP}:{.spec.ports[?(.name=="redis")].port}
     name: redis
   spec:
     ports:
     - name: redis
-      nodePort: 0
       port: 6379
-      protocol: TCP
       targetPort: 6379
     selector:
       name: redis
-    sessionAffinity: None
-    type: ClusterIP
-  status:
-    loadBalancer: {}
 
 
 - apiVersion: v1
