@@ -347,15 +347,15 @@ objects:
             capabilities: {}
             privileged: false
           terminationMessagePath: /dev/termination-log
-          #volumeMounts:
-          #- mountPath: /var/lib/redis/data
-          #  name: redis-data
+          volumeMounts:
+          - mountPath: /var/lib/redis/data
+            name: redis-data
         dnsPolicy: ClusterFirst
         restartPolicy: Always
-        #volumes:
-        #- name: redis-data
-        #  persistentVolumeClaim:
-        #    claimName: redis
+        volumes:
+        - name: redis-data
+          persistentVolumeClaim:
+            claimName: redis
     triggers:
     - imageChangeParams:
         automatic: true
