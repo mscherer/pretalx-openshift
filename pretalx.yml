@@ -406,7 +406,7 @@ parameters:
   displayName: Memory Limit
   name: MEMORY_LIMIT
   required: true
-  value: 512Mi
+  value: 1024Mi
 
 - description: Maximum amount of memory the PostgreSQL container can use.
   displayName: Memory Limit (PostgreSQL)
