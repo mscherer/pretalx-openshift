@@ -166,6 +166,13 @@ objects:
           resources:
             limits:
               memory: ${MEMORY_LIMIT}
+          volumeMounts:
+          - mountPath: /var/lib/pretalx/
+            name: pretalx-data
+        volumes:
+        - name: pretalx-data
+          persistentVolumeClaim:
+            claimName: pretalx-data
     triggers:
     - imageChangeParams:
         automatic: true
@@ -176,6 +183,17 @@ objects:
           name: ${NAME}:latest
       type: ImageChange
     - type: ConfigChange
+
+- apiVersion: v1
+  kind: PersistentVolumeClaim
+  metadata:
+    name: pretalx-data
+  spec:
+    accessModes:
+    - ReadWriteOnce
+    resources:
+      requests:
+        storage: ${PRETALX_DATA_VOLUME_CAPACITY}
 
 - apiVersion: v1
   kind: PersistentVolumeClaim
@@ -493,3 +511,8 @@ parameters:
   required: true
   value: 1Gi
 
+- description: Volume space available for pretalx data, e.g. 512Mi, 2Gi.
+  displayName: Pretalx Data Volume Capacity
+  name: PRETALX_DATA_VOLUME_CAPACITY
+  required: true
+  value: 1Gi

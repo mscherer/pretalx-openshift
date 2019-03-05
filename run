@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# TODO temporary for now, need a real directory later
-export DATADIR=/tmp/data
+export DATADIR=/var/lib/pretalx
 export PRETALX_FILESYSTEM_LOGS=$DATADIR/logs
 export PRETALX_FILESYSTEM_MEDIA=$DATADIR/media
 export PRETALX_FILESYSTEM_STATIC=$DATADIR/static
