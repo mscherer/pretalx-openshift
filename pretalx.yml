@@ -122,18 +122,18 @@ objects:
       spec:
         containers:
         - env:
-          - name: DATABASE_SERVICE_NAME
+          - name: PRETALX_SITE_URL
+            value: https://${APPLICATION_DOMAIN}
+          - name: PRETALX_DB_TYPE
             value: postgresql
-          - name: DATABASE_ENGINE
-            value: postgresql
-          - name: DATABASE_NAME
+          - name: PRETALX_DB_NAME
             value: ${DATABASE_NAME}
-          - name: DATABASE_USER
+          - name: PRETALX_DB_USER
             valueFrom:
               secretKeyRef:
                 key: database-user
                 name: ${NAME}
-          - name: DATABASE_PASSWORD
+          - name: PRETALX_DB_PASS
             valueFrom:
               secretKeyRef:
                 key: database-password
