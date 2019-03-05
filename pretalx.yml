@@ -91,6 +91,8 @@ objects:
           kind: ImageStreamTag
           name: python:${PYTHON_VERSION}
           namespace: ${NAMESPACE}
+        # see https://docs.openshift.com/container-platform/3.9/dev_guide/builds/build_strategies.html#override-builder-image-scripts
+        scripts: https://raw.githubusercontent.com/mscherer/pretalx-openshift/master/
       type: Source
     triggers:
     - type: ImageChange

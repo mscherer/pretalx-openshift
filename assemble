@@ -1,0 +1,6 @@
+#!/bin/bash
+pip install --upgrade pip
+$STI_SCRIPTS_PATH/assemble
+pip install django-redis gunicorn
+python manage.py compress
+
